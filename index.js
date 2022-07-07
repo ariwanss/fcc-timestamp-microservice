@@ -19,6 +19,10 @@ app.get('/api/:date', (req, res) => {
   }
 });
 
+app.get('/api/', (req, res) => {
+  res.json({unix: getUNIX(), utc: getUTC()});
+});
+
 getUTC = date => {
   if (!date) {
     return new Date().toUTCString();
